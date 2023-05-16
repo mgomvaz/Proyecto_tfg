@@ -1,0 +1,7 @@
+wget==3.2
+pymongo==4.3.3
+webdriver-manager==3.8.3
+selenium==4.7.2
+nltk==3.8.1
+lxml==4.9.1
+snscrape @ git+https://github.com/JustAnotherArchivist/snscrape.git
