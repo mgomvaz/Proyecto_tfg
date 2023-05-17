@@ -256,6 +256,7 @@ def login(email, password,url):
         options.add_argument("--disable-notifications")
         options.add_argument("--disable-infobars")
         options.add_argument("--mute-audio")
+        options.add_argument('--headless')
         try:
             driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
             print("you logged in. Let's rock")
