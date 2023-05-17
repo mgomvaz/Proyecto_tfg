@@ -411,6 +411,7 @@ class Pagina4:
 
 root = Tk()
 root.iconbitmap("img/logo_birds.ico")
+print("prueba")
 root.config(width="800", height="600")
 mi_app = PaginaPrincipal(root)
 root.mainloop()
