@@ -258,7 +258,8 @@ def login(email, password,url):
         options.add_argument("--mute-audio")
         options.add_argument('--headless')
         try:
-            driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+            #driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+            driver = webdriver.Chrome("Selenium drivers\chromedriver.exe")
             print("you logged in. Let's rock")
         except:
             print("you need web driver!")

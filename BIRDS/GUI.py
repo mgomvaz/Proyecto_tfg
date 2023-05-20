@@ -409,6 +409,7 @@ class Pagina4:
         self.titulo.grid(pady=10,row=0)
 
 
+
 root = Tk()
 root.iconbitmap("img/logo_birds.ico")
 root.config(width="800", height="600")
