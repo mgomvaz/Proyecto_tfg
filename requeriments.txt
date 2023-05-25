@@ -6,4 +6,4 @@ nltk==3.8.1
 lxml==4.9.1
 Pillow==9.2.0
 urllib3==1.26.12
-snscrape==0.6.2.20230320
+
