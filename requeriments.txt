@@ -6,4 +6,4 @@ nltk==3.8.1
 lxml==4.9.1
 Pillow==9.2.0
 urllib3==1.26.12
-snscrape @ git+https://github.com/JustAnotherArchivist/snscrape.git
+snscrape @ git+https://github.com/JustAnotherArchivist/snscrape.git@786815dd05681e2421cd03aa9acf5ab5c773bce9
