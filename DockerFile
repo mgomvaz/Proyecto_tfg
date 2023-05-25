@@ -1,0 +1,11 @@
+FROM python:latest
+COPY . /Proyecto_tfg
+WORKDIR /Proyecto_tfg
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+EXPOSE 27017
+WORKDIR /BIRDS
+RUN Python GUI.py
+
+
+
