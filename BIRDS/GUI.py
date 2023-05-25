@@ -7,6 +7,7 @@ from lxml.html.builder import LI
 import tkinter.font as tkFont
 
 url = 'mongodb://localhost:27017'
+#url = 'mongodb://tfg:123@monguito:27017'
 
 class PaginaPrincipal:
     def __init__(self, master):

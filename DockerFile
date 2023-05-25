@@ -1,11 +1,16 @@
-FROM python:latest
+FROM python:3.10.7
+
+RUN mkdir -p /Proyecto_tfg
+
 COPY . /Proyecto_tfg
-WORKDIR /Proyecto_tfg
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-EXPOSE 27017
-WORKDIR /BIRDS
-RUN Python GUI.py
+
+EXPOSE 3000
+
+RUN pip install --upgrade pip
+
+RUN pip freeze > requirements.txt
+
+CMD ["Python","/Proyecto_tfg/BIRDS/GUI.py"]
 
 
 
