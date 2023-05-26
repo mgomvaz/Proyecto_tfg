@@ -4,6 +4,8 @@ RUN mkdir -p /Proyecto_tfg
 
 COPY . /Proyecto_tfg
 
+RUN apt-get install git -y
+
 EXPOSE 3000
 
 RUN pip install --upgrade pip
