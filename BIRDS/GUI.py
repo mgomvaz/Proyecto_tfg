@@ -17,25 +17,39 @@ class PaginaPrincipal:
         master.resizable(False, False)
         fondo='azure'
         master.configure(bg=fondo)
+
+        
         fuente =tkFont.Font(family="Helvetica ", size=20, weight="bold", slant="italic")
 
         self.titulo = Label(master,bg=fondo,fg='gray27',font=fuente, text="Seleccione la red social con la que quiera investigar")
         self.titulo.pack(fill=X)
+
+        button_frame = Frame(root,bg=fondo)
+        button_frame.pack(fill=X)
         
         self.imagen = Image.open("img/facebook.png")
         #self.imagen = Image.open(r"TFG/img/facebook.png")
         #self.imagen = Image.open("TFG_miggomvaz_/TFG_miggomvaz/TFG/TFG/img/facebook.png")
         self.n = self.imagen.resize((100,100))
         self.imagen_tk = ImageTk.PhotoImage(self.n)
-        self.boton_pagina1 = Button(master,bg=fondo,image=self.imagen_tk, command=self.abrir_pagina1)
+        self.boton_pagina1 = Button(button_frame,bg=fondo,image=self.imagen_tk, command=self.abrir_pagina1)
         self.boton_pagina1.pack(side="left", padx=50)
+
+
+        self.imagen3 =Image.open("img/txt.png")
+        self.n3 = self.imagen3.resize((100, 100))
+        self.imagen_tk3 = ImageTk.PhotoImage(self.n3)
+        self.boton_pagina3 = Button(button_frame,bg=fondo,image=self.imagen_tk3, command=self.abrir_pagina5)
+        self.boton_pagina3.pack(side="left", padx=50)
         
         
         self.imagen2 =Image.open("img/signo-de-twitter.png")
         self.n2 = self.imagen2.resize((100, 100))
         self.imagen_tk2 = ImageTk.PhotoImage(self.n2)
-        self.boton_pagina2 = Button(master,bg=fondo,image=self.imagen_tk2, command=self.abrir_pagina2)
-        self.boton_pagina2.pack(side="right", padx=50)
+        self.boton_pagina2 = Button(button_frame,bg=fondo,image=self.imagen_tk2, command=self.abrir_pagina2)
+        self.boton_pagina2.pack(side="left", padx=50)
+
+        button_frame.pack(expand=True, fill="both")
         
     def abrir_pagina1(self):
         self.master.withdraw()
@@ -46,6 +60,11 @@ class PaginaPrincipal:
         self.master.withdraw()
         pagina2 = Toplevel(self.master)
         Pagina2(pagina2)
+
+    def abrir_pagina5(self):
+        self.master.withdraw()
+        pagina5 = Toplevel(self.master)
+        Pagina5(pagina5)
 
 class Pagina1:        
     def __init__(self, master):
@@ -408,6 +427,70 @@ class Pagina4:
         
         self.titulo = Label(master, text=opinion[1])
         self.titulo.grid(pady=10,row=0)
+
+class Pagina5:
+    def __init__(self, master):
+        fuente =tkFont.Font(family="Helvetica ", size=20, weight="bold", slant="italic")  
+        fuente1= tkFont.Font(family="Helvetica ", size=13, slant="italic")
+        self.master = master
+        master.geometry("800x300")
+        master.resizable(False, False)
+        fondo='azure'
+        master.iconbitmap("img/logo_birds.ico")
+        master.configure(bg=fondo)
+        master.title("Exportar TXT")
+
+        self.titulo = Label(master,fg='gray27',bg=fondo,font=fuente, text="Exportar TXT")
+        self.titulo.pack(pady=10)
+        
+        
+        
+        
+        self.etiqueta1 = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Tu Correo:")
+        self.etiqueta1.pack()
+
+        # Crea una entrada de texto y la coloca en la ventana
+        self.correo = Entry(master)
+        self.correo.pack()
+        
+        
+        
+        
+        self.etiqueta2 = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Contraseña:")
+        self.etiqueta2.pack()
+
+        # Crea una entrada de texto y la coloca en la ventana
+        self.pw = Entry(master,show="*" )
+        self.pw.pack()
+
+        self.cuentaFacebook = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Facebook:")
+        self.cuentaFacebook.pack()
+
+        # Crea una entrada de texto y la coloca en la ventana
+        self.cuentaFacebook = Entry(master)
+        self.cuentaFacebook.pack()
+
+
+        self.cuentaTwitter = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Twitter:")
+        self.cuentaTwitter.pack()
+
+        # Crea una entrada de texto y la coloca en la ventana
+        self.cuentaTwitter = Entry(master)
+        self.cuentaTwitter.pack()
+        
+        
+                
+        self.boton = Button(master, text="Investigarla", command=self.abrir_pagina31)
+        self.boton.pack(pady=5)
+    
+
+        self.boton_volver = Button(master, text="Volver a la página principal", command=self.volver_pagina_principal)
+        self.boton_volver.pack(padx=20,anchor='sw')
+
+    def volver_pagina_principal(self):
+        self.master.destroy()
+        root.deiconify()
+        
 
 
 

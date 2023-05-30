@@ -2,6 +2,7 @@ version: "3.9"
 services:
   miapp:
     build: .
+
     ports:
       - "3000:3000"
     links:
@@ -13,3 +14,4 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=tfg
       - MONGO_INITDB_ROOT_PASSWORD=123
+  
