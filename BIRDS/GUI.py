@@ -517,7 +517,7 @@ class Pagina5:
             if(resultado):
                 datoF=resultado
             else:
-                datoF=login(str(correo),str(pw),nombre)
+                datoF=login(str(self.correo.get()),str(self.pw.get()),self.cuentaFacebook.get())
                 if(datoF=="error"):
                     self.error = Label(master,bg=fondo, text="Vuelva a poner el usuario y contraseña") 
                     self.error.grid(pady=5,padx=5)
@@ -543,9 +543,9 @@ class Pagina5:
                    lista.append((i[0],i[1]))
                     
             else:
-                 lista=nube_palabras(self.texto)
+                 lista=nube_palabras(str(self.cuentaTwitter.get()))
                  datos_twitter = {
-                     'twitter_id':self.texto,
+                     'twitter_id':str(self.cuentaTwitter.get()),
                      'nube':lista
                      }
                  collection.insert_one(datos_twitter)
@@ -564,7 +564,7 @@ class Pagina5:
         pareja = datoF["pareja"] 
         estado_civil = datoF["estado_civil"] 
         trabajos=datoF["trabajos"]
-        universidades=dato["universidades"]      
+        universidades=datoF["universidades"]      
         lugares=datoF["pl"]
         red =datoF["red"] 
         genero = datoF["genero"]        

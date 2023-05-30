@@ -1,0 +1,17 @@
+Datos de las cuentas franciscojose.cerezocalleja_Bleete02.txt 
+.Facebook Cuenta franciscojose.cerezocalleja
+ cuenta=franciscojose.cerezocalleja
+ nombre=Francisco José Cerezo Calleja
+ trabajo=Worked at Jubileta
+ estudio=Studied at Universidad Laboral de Cordoba
+ nace=Mundo Novo, Parana, Brazil
+ pareja=
+ estado Civil=It's been complicated since 1905
+ trabajos=['Worked at Jubileta']
+ Universidades=[]
+ lugares vividos=['Current city Jakarta, Indonesia', 'Hometown Mundo Novo, Parana, Brazil']
+ red= 
+ genero=Male
+ cumpleaños=
+ año=
+ Palabras más usadas en Twitter=[('visto', 8), ('si', 4), ('exclusiva', 4), ('padrura', 3), ('creo', 3), ('mejor', 3), ('examen', 3), ('hacer', 3), ('ser', 3), ('solo', 2)]
