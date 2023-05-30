@@ -5,6 +5,7 @@ from pymongo import MongoClient
 from PIL import Image, ImageTk
 from lxml.html.builder import LI
 import tkinter.font as tkFont
+import os
 
 url = 'mongodb://localhost:27017'
 #url = 'mongodb://tfg:123@monguito:27017'
@@ -463,16 +464,16 @@ class Pagina5:
         self.pw = Entry(master,show="*" )
         self.pw.pack()
 
-        self.cuentaFacebook = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Facebook:")
-        self.cuentaFacebook.pack()
+        self.etiqueta3 = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Facebook:")
+        self.etiqueta3.pack()
 
         # Crea una entrada de texto y la coloca en la ventana
         self.cuentaFacebook = Entry(master)
         self.cuentaFacebook.pack()
 
 
-        self.cuentaTwitter = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Twitter:")
-        self.cuentaTwitter.pack()
+        self.etiqueta4 = Label(master,fg='gray27',bg=fondo,font=fuente1, text="Cuenta de Twitter:")
+        self.etiqueta4.pack()
 
         # Crea una entrada de texto y la coloca en la ventana
         self.cuentaTwitter = Entry(master)
@@ -480,7 +481,7 @@ class Pagina5:
         
         
                 
-        self.boton = Button(master, text="Investigarla", command=self.abrir_pagina31)
+        self.boton = Button(master, text="Exportar Información", command=self.devuelveTXT)
         self.boton.pack(pady=5)
     
 
@@ -490,6 +491,89 @@ class Pagina5:
     def volver_pagina_principal(self):
         self.master.destroy()
         root.deiconify()
+
+
+
+    def crear_archivo_txt(self,nombre_archivo, texto):
+        try:
+            ruta_completa = os.path.join("TXT", nombre_archivo)
+            with open(ruta_completa, 'w') as archivo:
+                archivo.write(texto)
+            print("Archivo creado exitosamente en:", ruta_completa)
+        except Exception as e:
+            print("Error al crear el archivo:", str(e))
+
+    def devuelveTXT(self):
+
+        datoF=None
+        if(self.cuentaFacebook.get()):
+            dbName = 'TFG'
+            collectionName = 'facebook'
+            client = MongoClient(url)
+            db = client[dbName]
+            collection = db[collectionName]
+            resultado = collection.find_one({"Face_id": self.cuentaFacebook.get()}) 
+            print(self.cuentaFacebook)
+            if(resultado):
+                datoF=resultado
+            else:
+                datoF=login(str(correo),str(pw),nombre)
+                if(datoF=="error"):
+                    self.error = Label(master,bg=fondo, text="Vuelva a poner el usuario y contraseña") 
+                    self.error.grid(pady=5,padx=5)
+                
+                    self.boton_volver2 = Button(master, text="Atras", command=self.abrir_pagina1)
+                    self.boton_volver2.grid(padx=20)
+                else:
+                    collection.insert_one(datoF)
+
+
+        lista=[]
+        if(self.cuentaTwitter.get()):
+            lista=[]
+            dbName = 'TFG'
+            collectionName = 'twitter'
+            client = MongoClient(url)
+            db = client[dbName]
+            collection = db[collectionName]
+            resultado = collection.find_one({"twitter_id": str(self.cuentaTwitter.get())})
+            if(resultado):
+               lista=[]
+               for i in resultado["nube"]:
+                   lista.append((i[0],i[1]))
+                    
+            else:
+                 lista=nube_palabras(self.texto)
+                 datos_twitter = {
+                     'twitter_id':self.texto,
+                     'nube':lista
+                     }
+                 collection.insert_one(datos_twitter)
+
+        
+        
+
+        # Ejemplo de uso
+        nombre_archivo = "{}_{}.txt".format(str(self.cuentaFacebook.get()),str(self.cuentaTwitter.get()))
+        variable1 = datoF
+        Face_id = datoF["Face_id"]
+        nombre = datoF["nombre"] 
+        trabajo = datoF["trabajo"] 
+        estudio = datoF["estudio"] 
+        nace = datoF["nace"] 
+        pareja = datoF["pareja"] 
+        estado_civil = datoF["estado_civil"] 
+        trabajos=datoF["trabajos"]
+        universidades=dato["universidades"]      
+        lugares=datoF["pl"]
+        red =datoF["red"] 
+        genero = datoF["genero"]        
+        cumpleaños = datoF["cumpleaños"]
+        año= datoF["año"]
+        variable2 = lista[:10]
+        texto_personalizado = "Datos de las cuentas {} \n.Facebook Cuenta {}\n cuenta={}\n nombre={}\n trabajo={}\n estudio={}\n nace={}\n pareja={}\n estado Civil={}\n trabajos={}\n Universidades={}\n lugares vividos={}\n red={}\n genero={}\n cumpleaños={}\n año={}\n Palabras más usadas en Twitter={}".format(nombre_archivo,str(self.cuentaFacebook.get()),Face_id,nombre,trabajo,estudio,nace,pareja,estado_civil,trabajos,universidades,lugares,red,genero,cumpleaños,año,variable2)
+        self.crear_archivo_txt(nombre_archivo, texto_personalizado)
+
         
 
 
