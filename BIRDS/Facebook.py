@@ -15,7 +15,6 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import wget
-from pymongo import MongoClient
 
 url = 'mongodb://localhost:27017'
 
@@ -307,6 +306,7 @@ def login(email, password,url):
         año=con[3]
         
         fo=busca_fotos(driver)
+        amigos=busca_amigos(driver)
         
         datos_facebook = {
             'Face_id':url,
@@ -325,7 +325,8 @@ def login(email, password,url):
             'genero':genero,
             'cumpleaños':cumpleaños,
             'año':año,
-            'fo':fo
+            'fo':fo,
+            'amigos':amigos
             }
         return datos_facebook
     
