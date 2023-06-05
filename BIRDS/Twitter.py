@@ -59,7 +59,7 @@ def opinion_tema(user,tema):
     res=""
     cont=1
     media=0
-    query = "(from:"+user+") until:"+str(now.year)+"-"+str(now.month)+"-"+str(now.day)+" since:2010-01-01"
+    query = "(from:"+user+") until:"+str(now.year)+"-"+str(now.month)+"-"+str(now.day)+" since:"+str(now.year-1)+"-"+str(now.month)+"-"+str(now.day)+""
     if cont!=rango:
         tope=0
         for tweet in sntwitter.TwitterSearchScraper(query).get_items():
@@ -74,7 +74,8 @@ def opinion_tema(user,tema):
                 print("\n")
                 cont=cont+1
                 if cont==rango:
-                    break 
+                    break
+                else:pass
             
     print(media)
     if(media>0.03):

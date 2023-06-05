@@ -570,7 +570,10 @@ class Pagina5:
         genero = datoF["genero"]        
         cumpleaños = datoF["cumpleaños"]
         año= datoF["año"]
-        amigos=datoF["amigos"]
+        amigos=NON
+        try:
+            amigos=datoF["amigos"]
+        except:pass
         variable2 = lista[:10]
         texto_personalizado = "Datos de las cuentas {} \n.Facebook Cuenta {}\n cuenta={}\n nombre={}\n trabajo={}\n estudio={}\n nace={}\n pareja={}\n estado Civil={}\n trabajos={}\n Universidades={}\n lugares vividos={}\n red={}\n genero={}\n cumpleaños={}\n año={}\n amigos={}\n Palabras más usadas en Twitter={}".format(nombre_archivo,str(self.cuentaFacebook.get()),Face_id,nombre,trabajo,estudio,nace,pareja,estado_civil,trabajos,universidades,lugares,red,genero,cumpleaños,año,amigos,variable2)
         self.crear_archivo_txt(nombre_archivo, texto_personalizado)
