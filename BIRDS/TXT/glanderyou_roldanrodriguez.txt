@@ -1,0 +1,18 @@
+Datos de las cuentas glanderyou_roldanrodriguez.txt 
+.Facebook Cuenta glanderyou
+ cuenta=glanderyou
+ nombre=Grady Landeryou
+ trabajo=Food and Beverage Manager at Stonefield Castle Hotel and Duty Manager/Breakfast supvisor at Stonefield Castle Hotel
+ estudio=Studied at Lake Tuggeranong College
+ nace=Canberra, Australian Capital Territory
+ pareja=Marica Di Francesco
+ estado Civil=Engaged to Marica Di Francesco
+ trabajos=['Food and Beverage Manager at Stonefield Castle Hotel', 'Duty Manager/Breakfast supvisor at Stonefield Castle Hotel', 'Worked at Drakeford IGA']
+ Universidades=[]
+ lugares vividos=['Current city Tarbert, Strathclyde, United Kingdom', 'Hometown Canberra, Australian Capital Territory']
+ red= 
+ genero=Male
+ cumpleaños=January 11
+ año=1994
+ amigos=[['Ricardo M. Gómez', 'https://www.facebook.com/richinas.matrisgomis'], ['Brian J McCarthy-Burns', 'https://www.facebook.com/bjamccarthy'], ['Claire Elizabeth Peters', 'https://www.facebook.com/claire.e.peters.7'], ['Ricardo M. Gómez', 'https://www.facebook.com/megan.hymers']]
+ Palabras más usadas en Twitter=[('1', 11), ('días', 5), ('ver', 4), ('pasado', 4), ('circuito', 4), ('ser', 3), ('menos', 3), ('hoy', 3), ('viernes', 3), ('ir', 3)]

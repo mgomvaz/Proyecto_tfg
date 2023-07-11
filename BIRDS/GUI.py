@@ -570,7 +570,7 @@ class Pagina5:
         genero = datoF["genero"]        
         cumpleaños = datoF["cumpleaños"]
         año= datoF["año"]
-        amigos=NON
+        amigos=NONE
         try:
             amigos=datoF["amigos"]
         except:pass
